@@ -1,0 +1,364 @@
+<!doctype html>
+<html lang="en">
+
+	<head>
+		<meta charset="utf-8">
+
+		<title>reveal.js - The HTML Presentation Framework</title>
+
+		<meta name="description" content="A framework for easily creating beautiful presentations using HTML">
+		<meta name="author" content="Hakim El Hattab">
+
+		<meta name="apple-mobile-web-app-capable" content="yes" />
+		<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+		<link rel="stylesheet" href="css/reveal.min.css">
+		<link rel="stylesheet" href="css/theme/sky.css" id="theme">
+
+		<!-- For syntax highlighting -->
+		<link rel="stylesheet" href="lib/css/zenburn.css">
+
+		<!-- If the query includes 'print-pdf', include the PDF print sheet -->
+		<script>
+			if( window.location.search.match( /print-pdf/gi ) ) {
+				var link = document.createElement( 'link' );
+				link.rel = 'stylesheet';
+				link.type = 'text/css';
+				link.href = 'css/print/pdf.css';
+				document.getElementsByTagName( 'head' )[0].appendChild( link );
+			}
+		</script>
+
+		<!--[if lt IE 9]>
+		<script src="lib/js/html5shiv.js"></script>
+		<![endif]-->
+	</head>
+
+	<body>
+
+		<div class="reveal">
+
+			<!-- Any section element inside of this container is displayed as a slide -->
+			<div class="slides">
+				<section>
+					<h1>Writing Good CSS</h1>
+					<h3>(and why we should care)</h3>
+				</section>
+
+				<section>
+					<h4>CSS annoys the crap out of programmers</h4>
+					<ul>
+						<li>It's not <i>that</i> hard...</li>
+						<li>But it's harder than it should be.
+					</ul>
+				</section>
+
+				<section>
+					<h4>Some numbers</h4>
+					<p>Days I spent in a web development immersive course: <strong>60</strong></p>
+					<p>Days the intructors spent on CSS: <strong>1</strong></p>
+					<p>
+						<strong>1.66%</strong> of class time<br>
+						...and some of that was spent talking about Bootstrap
+					</p>
+				</section>
+
+				<section>
+					<h4>Some people don't even think being a CSS expert is a thing anymore</h4>
+					<p>
+  					<blockquote cite="http://www.zeldman.com/2014/01/06/its-2014-is-web-design-dead/">
+  						&ldquo;What we may not have realized is that once the browsers don’t suck, being an HTML and CSS 'guru' isn’t really a very marketable skillset.&rdquo;
+  					</blockquote>
+  					- Jeff Croft
+					</p>
+				</section>
+
+				<section>
+				<h4>Okay, but...</h4>
+					<ol>
+						<li>Browsers still kind of suck</li>
+						<li>
+							<q>&ldquo;There is a big difference between someone who knows how to write good CSS and HTML and someone who doesn't.&rdquo;</q><br>
+							- Patrick Hereford
+						</li>
+					</ol>
+				</section>
+
+				<section>
+					<h4>
+						So, what makes CSS good?
+					</h4>
+				</section>
+
+				<section>
+					<h4>
+						Ideally, CSS is:
+					</h4>
+					<ol>
+						<li><strong>Functional</strong> - it makes the page look and behave the way you (and your designer) want it to</li>
+						<li><strong>Structured</strong> - it is readable, semantic and organized in a non-crazy fashion</li>
+						<li><strong>DRY</strong> - it achieves the desired end goal with a minimal amount of code, without redundancies</li>
+						<li><strong>Maintainable</strong> - it is flexible and easy to edit when future style changes are desired</li>
+					</ol>
+				</section>
+
+				<section>
+					<h4>
+						In the wild:
+					</h4>
+					<ol>
+						<li>I just need to make sure it's <strong>functional</strong>.</li>
+						<li>Maybe if there's time I can try to make it <strong>structured</strong> and <strong>DRY</strong> and <strong>maintainable</strong> and whatnot.</li>
+					</ol>
+				</section>
+
+        <section>
+          <img class="concept-c" src="conceptC_snippet.png" alt="pic">
+        </section>
+
+				<section>
+					<p>It's hard to follow best practices when you're not writing CSS in a vaccuum - but that's when you need them the most.</p>
+					<pre><code data-trim contenteditable>
+discovery-item-container {
+  color: #b5b3ae;
+  border-top: 1px solid #d2cbb7;
+  margin-right: 0;
+  height: 63px;
+  display: inline-block;
+  width: 100%;
+  img {
+    display: none;
+  }
+  .discovery-item {
+    margin-left: 3%;
+    padding: 0;
+    margin-top: 3px;
+    height: 100%;
+    width: 96%;
+    display: table;
+    cursor: pointer;
+    &.active {
+      border-left: 3px double #d2cbb7;
+      background-color: #fafaf9;
+      img {
+        display: inline-block;
+        margin-left: -15px;
+        margin-top: 20px;
+        height: 23px;
+        width: 12px;
+      }
+      color: #504a39;
+      .discovery-figure, span {
+        color: #604e1e;
+      }
+    }
+    &.div {
+      padding-right: 5%;
+    }
+  }
+  .discovery-figure {
+    display: table-cell;
+    vertical-align: middle;
+    margin-left: 5%;
+    padding: 0 5% 0;
+    line-height: 16px;
+    font-size: 16px;
+    width: 15.5%;
+    .figure-f {
+      vertical-align: text-top;
+    }
+    .figure-ig {
+      text-decoration: underline;
+      font-size: 10px;
+      line-height: 12px;
+      vertical-align: text-top;
+    }
+  }
+}
+					</code></pre>
+				</section>
+
+        <section>
+          <p>
+            Writing good CSS makes it easier to keep writing good CSS.
+          </p>
+        </section>
+
+        <section>
+          <p>
+            A lot of CSS standards and best practices are widely agreed upon...but not all of them
+          </p>
+          <ul>
+            <li>IDs vs. Classes</li>
+            <li><code>!important</code></li>
+            <li>Progressive enhancement vs. graceful degradation</li>
+          </ul>
+        </section>
+
+        <section>
+          <p>
+            <blockquote cite="http://csswizardry.com/2012/04/my-html-css-coding-style/">&ldquo;I have a blanket-ban on IDs in CSS. There is literally no point in them, and they only ever cause harm. Everything that needs styling is done so without using IDs.
+            &rdquo;</blockquote>
+            - Harry Robert
+          </p>
+          <small><a href="http://csswizardry.com/2012/04/my-html-css-coding-style/">http://csswizardry.com/2012/04/my-html-css-coding-style/</a></small>
+        </section>
+
+        <section>
+          <h4>IDs vs. Classes</h4>
+          <ul>
+            <li>IDs are kind of like !importants in that they trump everything(...except !importants). This can cause enormous headaches and specificity wars.</li>
+            <li>Style-wise, there is nothing an ID can provide that a class can't.</li>
+            <li>By definition, IDs can't be reused - but in some cases, this is semantic and appropriate. </li>
+            <li>Avoiding using IDs for CSS can lead to grossness like this: <code> .class.some-other-class.one-more-class.yet-another-class {...}</code></li>
+          </ul>
+        </section>
+
+        <section>
+          <p>
+            <strong>Takeaway:</strong> Only use IDs for CSS if it really makes sense - and it probably wouldn't hurt to not use them at all.
+          </p>
+        </section>
+
+        <section>
+          <h4>Using <code>!important</code></h4>
+          <ul>
+            <li>The common feeling seems to be using <code>!important</code> = bad.</li>
+            <li>In reality, not always true. <i>Abusing</i> <code>!important</code> = bad.</li>
+            <li>Littering stylesheets with too many <code>!importants</code> is usually a signal that you've lost control and understanding of what's going on with your CSS.</li>
+            <li>But, that doesn't mean there isn't a use case for it.</li>
+          </ul>
+        </section>
+
+        <section>
+          <h4>Utility classes</h4>
+          <pre><code data-trim contenteditable>
+.button {
+   background: red            !important;
+   color: white               !important;
+   padding: 3px               !important;
+   border-radius: 5px         !important;
+   border: 1px solid black    !important;
+
+   /* For good measure */
+   text-decoration: none      !important;
+}
+          </code></pre>
+          <small><a href="http://css-tricks.com/when-using-important-is-the-right-choice/">http://css-tricks.com/when-using-important-is-the-right-choice/</a></small>
+        </section>
+
+        <section>
+          <p>
+            <strong>Takeaway:</strong> <code>!important is okay to use, as long as you're using it intentionally, and not out of exasperation.</code>
+          </p>
+        </section>
+
+        <section>
+          <h4>Graceful degradation vs. progressive enhancement</h4>
+          <p>Start with the most modern browsers and work your way down to IE8</p>
+          <p><strong>OR</strong></p>
+          <p>Start with IE8 and work your way upward</p>
+        </section>
+
+        <section>
+          <h4>Feature detection with Modernizr</h4>
+          <pre><code data-trim contenteditable>
+            html class="js canvas canvastext no-geolocation rgba hsla multiplebgs borderimage
+            borderradius boxshadow opacity cssanimations csscolumns cssgradients cssreflections
+            csstransforms csstransforms3d csstransitions video audio localstorage sessionstorage
+            webworkers applicationcache fontface"
+          </code></pre>
+          <small><a href="http://domain7.com/blog/progressive-enhancement-graceful-degradation-modernizr">http://domain7.com/blog/progressive-enhancement-graceful-degradation-modernizr</a></small>
+        </section>
+
+        <section>
+          <h4>Graceful degradation</h4>
+          <pre><code>
+.button {
+  -moz-border-radius: 5px;
+  -webkit-border-radius: 5px;
+  border-radius: 5px;
+}
+
+.no-borderradius .button {
+  background-image: url('rounded_corners.png');
+}
+          </code></pre>
+          <small><a href="http://domain7.com/blog/progressive-enhancement-graceful-degradation-modernizr">http://domain7.com/blog/progressive-enhancement-graceful-degradation-modernizr</a></small>
+        </section>
+
+        <section>
+          <h4>Progressive enhancement</h4>
+          <pre><code>
+.button {
+  background-image: url('rounded_corners.png');
+}
+
+.borderradius .button {
+  background-image: none;
+  -moz-border-radius: 5px;
+  -webkit-border-radius: 5px;
+  border-radius: 5px;
+}
+          </code></pre>
+          <small><a href="http://domain7.com/blog/progressive-enhancement-graceful-degradation-modernizr">http://domain7.com/blog/progressive-enhancement-graceful-degradation-modernizr</a></small>
+        </section>
+
+        <section>
+          <h4>Some thoughts</h4>
+          <ul>
+            <li>Progressive enhancement seems to be favored in the community</li>
+            <li>But graceful degradation is more intuitive to us as programmers, and feels less...degrading?</li>
+          </ul>
+        </section>
+
+        <section>
+          <h4>In conclusion</h4>
+          <ul>
+            <li>When writing CSS for big apps, play the long game - CSS is a team sport</li>
+            <li>There are lots of agreed upon best practices out there to guide CSS development - but there's still room for debate and personal style</li>
+            <li>CSS is annoying, but worth trying to master</li>
+          </ul>
+        </section>
+
+			</div>
+
+		</div>
+
+		<script src="lib/js/head.min.js"></script>
+		<script src="js/reveal.min.js"></script>
+
+		<script>
+
+			// Full list of configuration options available here:
+			// https://github.com/hakimel/reveal.js#configuration
+			Reveal.initialize({
+				controls: true,
+				progress: true,
+				history: true,
+				center: true,
+
+				theme: Reveal.getQueryHash().theme, // available themes are in /css/theme
+				transition: Reveal.getQueryHash().transition || 'default', // default/cube/page/concave/zoom/linear/fade/none
+
+				// Parallax scrolling
+				// parallaxBackgroundImage: 'https://s3.amazonaws.com/hakim-static/reveal-js/reveal-parallax-1.jpg',
+				// parallaxBackgroundSize: '2100px 900px',
+
+				// Optional libraries used to extend on reveal.js
+				dependencies: [
+					{ src: 'lib/js/classList.js', condition: function() { return !document.body.classList; } },
+					{ src: 'plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+					{ src: 'plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+					{ src: 'plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } },
+					{ src: 'plugin/zoom-js/zoom.js', async: true, condition: function() { return !!document.body.classList; } },
+					{ src: 'plugin/notes/notes.js', async: true, condition: function() { return !!document.body.classList; } }
+				]
+			});
+
+		</script>
+
+	</body>
+</html>
